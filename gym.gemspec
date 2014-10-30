@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.version       = Gym::VERSION
   spec.authors       = ['Oscar Esgalha']
   spec.email         = ['oscaresgalha@gmail.com']
-  spec.summary       = %q{Get your Plain Old Ruby Object in shape!}
+  spec.summary       = %q{Put your Plain Old Ruby Object in shape!}
   spec.homepage      = ''
   spec.license       = 'MIT'
 

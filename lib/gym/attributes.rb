@@ -1,5 +1,3 @@
-require 'pry'
-
 module Gym
   module Attributes
     def initialize(attributes = {})

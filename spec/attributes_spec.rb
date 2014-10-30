@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 class Person
-  include Gym::Model
+  include Gym::Attributes
 end
 
 describe Person do
