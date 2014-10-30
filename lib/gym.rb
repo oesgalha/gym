@@ -1,5 +1,3 @@
-require "gym/version"
-
-module Gym
-  # Your code goes here...
-end
+require 'gym/version'
+require 'gym/attributes'
+require 'gym/model'
