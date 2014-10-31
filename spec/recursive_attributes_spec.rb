@@ -22,6 +22,23 @@ describe Band do
     subject.name.must_equal 'Black Sabbath'
   end
 
+  it '#vocal' do
+    subject.vocal.name.must_equal 'Ozzy'
+    subject.vocal.age.must_equal 65
+    subject.vocal.eat_bats.must_equal true
+  end
+
+  it '#guitar' do
+    subject.guitar.name.must_equal 'Tony'
+    subject.guitar.age.must_equal 66
+    subject.guitar.complete_hand_fingers.must_equal 8
+  end
+
+  it '#bass' do
+    subject.bass.name.must_equal 'Geezer'
+    subject.bass.age.must_equal 65
+  end
+
   it '#to_h' do
     subject.must_respond_to :to_h
     hash = subject.to_h
