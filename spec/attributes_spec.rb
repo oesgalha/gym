@@ -1,64 +1,44 @@
 require 'spec_helper'
 
-class Person
+class Hero
   include Gym::Attributes
 end
 
-class Band
-  include Gym::Attributes
-end
-
-describe Person do
-  subject { Person.new(name: 'John', age: 31) }
+describe Hero do
+  subject { Hero.new(name: 'Spider Man', real_name: 'Peter Parker', is_batman: false) }
 
   it '#to_h' do
     subject.must_respond_to :to_h
     hash = subject.to_h
-    hash[:name].must_equal 'John'
-    hash[:age].must_equal 31
+    hash[:name].must_equal 'Spider Man'
+    hash[:real_name].must_equal 'Peter Parker'
+    hash[:is_batman].must_equal false
   end
 
   it '#name' do
-    subject.name.must_equal 'John'
+    subject.name.must_equal 'Spider Man'
+  end
+
+  it '#real_name' do
+    subject.real_name.must_equal 'Peter Parker'
+  end
+
+  it '#is_batman' do
+    subject.is_batman.must_equal false
   end
 
   it '#name=' do
-    subject.name = 'Joe'
-    subject.name.must_equal 'Joe'
+    subject.name = 'Batman'
+    subject.name.must_equal 'Batman'
   end
 
-  it '#age' do
-    subject.age.must_equal 31
+  it '#real_name=' do
+    subject.real_name = 'Bruce Wayne'
+    subject.real_name.must_equal 'Bruce Wayne'
   end
 
-  it '#age=' do
-    subject.age = 28
-    subject.age.must_equal 28
-  end
-
-end
-
-describe Band do
-  subject {
-    Band.new(
-      name: 'Black Sabbath',
-      vocal: Person.new(name: 'Ozzy', age: 65, eat_bats: true),
-      guitar: Person.new(name: 'Tony ', age: 66, complete_hand_fingers: 8),
-      bass: Person.new(name: 'Geezer ', age: 65)
-    )
-  }
-
-  it '#name' do
-    subject.name.must_equal 'Black Sabbath'
-  end
-
-  it '#to_h' do
-    subject.must_respond_to :to_h
-    hash = subject.to_h
-    hash[:name].must_equal 'Black Sabbath'
-    hash[:vocal].must_be_kind_of Hash
-    hash[:vocal][:name].must_equal 'Ozzy'
-    hash[:vocal][:age].must_equal 65
-    hash[:vocal][:eat_bats].must_equal true
+  it '#is_batman=' do
+    subject.is_batman = true
+    subject.is_batman.must_equal true
   end
 end
