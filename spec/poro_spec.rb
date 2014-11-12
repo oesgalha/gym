@@ -29,9 +29,12 @@ class Memory < Measure
 end
 
 describe Cart do
+
+  let (:deal_time) { DateTime.now }
+
   subject {
     Cart.new(
-      deal_date: DateTime.now,
+      deal_date: deal_time,
       tax: Money.new(amount: 20.0),
       product: Computer.new(
         cpus: 2,
@@ -104,6 +107,19 @@ describe Cart do
 
   it '#product.price.currency' do
     subject.product.price.currency.must_equal 'USD'
+  end
+
+  it '#to_h' do
+    subject.to_h.must_equal({
+      deal_date: deal_time,
+      tax: { amount: 20.0, currency: 'USD' },
+      product: {
+        color: 'black',
+        cpus: 2,
+        ram: { amount: 1, magnitude: :gb },
+        price: { amount: 1_000.0, currency: 'USD' }
+      }
+    })
   end
 
 end
