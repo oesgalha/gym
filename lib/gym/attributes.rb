@@ -5,8 +5,10 @@ module Gym
     end
 
     def gym_attributes
-      @gym_attributes.tap do |h|
-        h.each { |k, v| h[k] = v.to_h if v.respond_to?(:gym_attributes) }
+      @gym_attributes.tap do |attributes|
+        attributes.each do |attribute, value|
+          attributes[attribute] = value.gym_attributes if value.respond_to?(:gym_attributes)
+        end
       end
     end
     alias to_h gym_attributes
