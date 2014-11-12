@@ -10,6 +10,7 @@ describe Hero do
   it '#to_h' do
     subject.must_respond_to :to_h
     hash = subject.to_h
+    hash.must_be_kind_of Hash
     hash[:name].must_equal 'Spider Man'
     hash[:real_name].must_equal 'Peter Parker'
     hash[:is_batman].must_equal false

@@ -1,7 +1,7 @@
 module Gym
   module Attributes
     def initialize(attributes = {})
-      @gym_attributes = attributes
+      @gym_attributes = self.class.gym_defaults.merge(attributes)
     end
 
     def gym_attributes
@@ -18,6 +18,20 @@ module Gym
         define_singleton_method(name.to_sym) { @gym_attributes[name.to_sym] }
       end
       send(name, *args)
+    end
+
+    module ClassMethods
+      def default(options)
+        gym_defaults.merge!(options)
+      end
+
+      def gym_defaults
+        @gym_defaults ||= {}
+      end
+    end
+
+    def self.included(base)
+      base.extend(ClassMethods)
     end
   end
 end

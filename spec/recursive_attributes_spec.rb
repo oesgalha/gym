@@ -42,6 +42,7 @@ describe Band do
   it '#to_h' do
     subject.must_respond_to :to_h
     hash = subject.to_h
+    hash.must_be_kind_of Hash
     hash[:name].must_equal 'Black Sabbath'
     hash[:vocal].must_be_kind_of Hash
     hash[:vocal][:name].must_equal 'Ozzy'
