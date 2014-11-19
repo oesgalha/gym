@@ -11,7 +11,7 @@ module Gym
         end
       end
     end
-    alias to_h gym_attributes
+    alias_method :to_h, :gym_attributes
 
     def method_missing(name, *args)
       if name.to_s.end_with? '='

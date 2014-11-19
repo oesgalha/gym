@@ -99,7 +99,7 @@ describe Cart do
   it '#product.ram.amount=' do
     subject.product.ram.amount = 2
     subject.product.ram.amount.must_equal 2
-  end  
+  end
 
   it '#product.price.amount' do
     subject.product.price.amount.must_equal 1_000.0
@@ -110,7 +110,7 @@ describe Cart do
   end
 
   it '#to_h' do
-    subject.to_h.must_equal({
+    subject.to_h.must_equal(
       deal_date: deal_time,
       tax: { amount: 20.0, currency: 'USD' },
       product: {
@@ -119,7 +119,7 @@ describe Cart do
         ram: { amount: 1, magnitude: :gb },
         price: { amount: 1_000.0, currency: 'USD' }
       }
-    })
+    )
   end
 
 end
