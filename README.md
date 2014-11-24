@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/oesgalha/gym.svg)](https://travis-ci.org/oesgalha/gym)
+
 # Gym
 
 Put your Plain Old Ruby Object in shape!
