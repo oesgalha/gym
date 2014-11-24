@@ -7,23 +7,23 @@ module Gym
         validations.each do |validation, test|
           case validation.to_sym
           when :type
-            return false if !value.nil? && !value.is_a?(test)
+            return false unless value.nil? || value.is_a?(test)
           when :presence
             return false unless value
           when :length
             test.each do |sub_validation, sub_test|
               case sub_validation
               when :maximum
-                return false unless value.length > sub_test
+                return false unless value.nil? || value.length < sub_test
               when :minimum
-                return false unless value.length < sub_test
+                return false unless value.nil? || value.length > sub_test
               end
             end
           when :inclusion
             test.each do |sub_validation, sub_test|
               case sub_validation
               when :in
-                return false unless sub_test.include?(value)
+                return false unless value.nil? || sub_test.include?(value)
               end
             end
           end
